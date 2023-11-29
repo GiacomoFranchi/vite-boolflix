@@ -11,8 +11,10 @@ export default {
 
 <template>
   <div >
-    <input type="search" placeholder="inizia la ricerca" v-model.trim="store.srcFilm" />
-    <button @click="$emit('srcFilm')">Cerca</button>
+    <input type="search"
+     placeholder="inizia la ricerca"
+      v-model.trim="store.srcFilm" />
+    <button @click="$emit('srcfilm')">Cerca</button>
   </div>
 </template>
 
