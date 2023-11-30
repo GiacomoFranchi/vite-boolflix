@@ -13,7 +13,8 @@ components: { AppHeader, AppMain },
 </template>
 
 <style lang="scss">
-@use "./style/general.scss"
-
+@use "./style/general.scss";
+@import "@fortawesome/fontawesome-free/css/all.css";
 </style>
 
+npm install @fortawesome/fontawesome-free

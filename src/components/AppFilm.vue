@@ -2,7 +2,8 @@
 export default {
   data(){
     return{
-      flag:["","en","es","it","cn"]
+      stars:[],
+      flag:["","en","es","it","cn"],
     }
   },
   props: {
@@ -11,9 +12,17 @@ export default {
   methods:{
     getImgUrl(lenguage){
       return new URL(`../assets/img/${lenguage}.png`, import.meta.url).href;
+    },
+  },
+  computed:{
+    fStar() { 
+      return Math.ceil(parseInt(this.film.vote_average) / 2) ;
+    },
+    eStar() { 
+      return (5 -  this.fStar);
     }
   }
-};
+}
 </script>
 
 <template>
@@ -27,15 +36,15 @@ export default {
         <div>
           <img class="flag" v-if="flag.includes(film.original_language)"  :src="getImgUrl(film.original_language)" alt="">
           <p v-else>{{ film.original_language }}</p>
+        </div>
+        <div >
+          <i  v-for="i in fStar" class="fa-solid fa-star"></i>
+          <i  v-for="i in eStar" class="fa-regular fa-star"></i>
         </div>        
-        <span>{{ film.vote_average }}</span>
       </div>
     </div>
   </template>
   
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
-div{
-
-  }
 </style>
