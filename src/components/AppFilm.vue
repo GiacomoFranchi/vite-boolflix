@@ -19,8 +19,8 @@ export default {
 <template>
     <div>
         
-        <h2>{{ film.title }}</h2>
-        <h3>{{ film.original_title }}</h3>
+        <h2>{{ film.title? film.title : film.name  }}</h2>
+        <h3>{{ film.original_title? film.original_title : film.original_name }}</h3>
         <div>
           <img v-if="flag.includes(film.original_language)"  :src="getImgUrl(film.original_language)" alt="">
           <p v-else>{{ film.original_language }}</p>

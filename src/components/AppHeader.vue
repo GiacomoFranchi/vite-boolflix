@@ -12,7 +12,19 @@ export default {
     components: { AppSrcBar },
     methods:{
         selfilm(){
+            //FILM
             axios.get(`${this.store.apiUrl}/search/movie`,{
+                params:{
+                    api_key: "3feda43c221b120c99ea38148719ef84",
+                    query: this.store.srcFilm,
+                },
+            })
+            .then((resp) => {
+                this.store.films = resp.data.results;
+            });
+            console.log(this.store.films);
+            //SERIE TV
+            axios.get(`${this.store.apiUrl}/search/tv`,{
                 params:{
                     api_key: "3feda43c221b120c99ea38148719ef84",
                     query: this.store.srcFilm,
