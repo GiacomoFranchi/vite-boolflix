@@ -12,12 +12,8 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div>
-            <div v-for="film in store.films">
-                <AppFilm  :film="film" />
-            </div>
-        </div>
+    <div class="row" >
+        <AppFilm v-for="film in store.films" :film="film" />
     </div>
 </template>
   
@@ -25,4 +21,9 @@ export default {
 @use "../style/partials/mixin" as *;
 @use "../style/partials/variables" as *;
 
+.row{
+    width: 100%;
+    @include flex(space-between, center, row);
+    flex-wrap: wrap;
+}
 </style>

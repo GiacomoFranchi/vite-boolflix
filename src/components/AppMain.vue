@@ -16,4 +16,9 @@ export default {
 @use "../style/partials/mixin" as *;
 @use "../style/partials/variables" as *;
 
+main{
+    background-color: gray;
+    width: 100%;
+    padding: 1.5rem;
+}
 </style>

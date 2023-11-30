@@ -49,7 +49,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../style/partials/mixin" as *;
+@use "../style/partials/variables" as *;
+
 header{
-    display: flex;
+    @include flex(space-between, center, row);
+    background-color: black;
+    padding: 1rem;
+    h1{
+        color: red;
+        font-size: 3rem;
+    }
 }
 </style>

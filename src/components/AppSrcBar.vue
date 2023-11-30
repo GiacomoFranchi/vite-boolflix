@@ -12,10 +12,26 @@ export default {
 <template>
   <div >
     <input type="search"
-     placeholder="inizia la ricerca"
+     placeholder="Inizia la ricerca.."
       v-model.trim="store.srcFilm" />
-    <button  @click="$emit('srcfilm')">Cerca</button>
+    <button  @click="$emit('srcfilm')">CERCA</button>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use "../style/partials/mixin" as *;
+@use "../style/partials/variables" as *;
+
+div{
+  input{
+    padding: 0.2rem;
+    font-size: 1rem;
+  }
+  button{
+    padding: 0.3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: red;
+  }
+}
+</style>
