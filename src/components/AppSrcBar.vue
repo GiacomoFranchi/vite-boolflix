@@ -14,7 +14,7 @@ export default {
     <input type="search"
      placeholder="inizia la ricerca"
       v-model.trim="store.srcFilm" />
-    <button @click="$emit('srcfilm')">Cerca</button>
+    <button  @click="$emit('srcfilm')">Cerca</button>
   </div>
 </template>
 

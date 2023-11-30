@@ -12,8 +12,9 @@ export default {
     components: { AppSrcBar },
     methods:{
         selfilm(){
-            axios.get(this.store.apiUrl,{
+            axios.get(`${this.store.apiUrl}/search/movie`,{
                 params:{
+                    api_key: "3feda43c221b120c99ea38148719ef84",
                     query: this.store.srcFilm,
                 },
             })
