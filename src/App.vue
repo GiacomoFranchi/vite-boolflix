@@ -8,13 +8,20 @@ components: { AppHeader, AppMain },
 </script>
 
 <template>
-<AppHeader />
-<AppMain />
+    <div class="container">
+        <AppHeader />
+        <AppMain />
+    </div>
+
 </template>
 
 <style lang="scss">
 @use "./style/general.scss";
 @import "@fortawesome/fontawesome-free/css/all.css";
-</style>
 
-npm install @fortawesome/fontawesome-free
+.container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+</style>

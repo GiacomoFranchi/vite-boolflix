@@ -31,9 +31,9 @@ export default {
                 },
             })
             .then((resp) => {
-                this.store.films = resp.data.results;
+                this.store.serieTv = resp.data.results;
             });
-            console.log(this.store.films)
+            console.log(this.store.serieTv)
         }
     }
 }
@@ -53,6 +53,10 @@ export default {
 @use "../style/partials/variables" as *;
 
 header{
+    position:fixed;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
     @include flex(space-between, center, row);
     background-color: black;
     padding: 1rem;

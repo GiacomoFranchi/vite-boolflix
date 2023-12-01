@@ -29,38 +29,37 @@ export default {
   <div class="col">
     <div class="card">
         <div class="locandina">
-          <img v-if="film.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
-          <img v-else class="no-img" src="https://c8.alamy.com/compit/r3yw81/nessuna-immagine-disponibile-icona-vettore-di-piana-r3yw81.jpg" alt="">
+          <img v-if="this.film.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
+          <img v-else class="no-img" :src="getImgUrl(film.poster_path)" alt="">
         </div>
         <div class="info">
           <h3>Titolo: <span>{{ film.title? film.title : film.name  }}</span></h3>
           <h3>Titolo originale: <span>{{ film.original_title? film.original_title : film.original_name }}</span></h3>
           <div>
-            <p>Lang:</p>
+            <p >Lang:</p>
             <img class="flag" v-if="flag.includes(film.original_language)"  :src="getImgUrl(film.original_language)" alt="">
-            <p v-else>{{ film.original_language }}</p>
+            <p class="lng" v-else>{{ film.original_language }}</p>
           </div>
           <div >
             <p>Voto:</p>
             <i  v-for="i in fStar" class="fa-solid fa-star"></i>
             <i  v-for="i in eStar" class="fa-regular fa-star"></i>
           </div>
-          <p class="descr">{{ film.overview }}</p>        
+          <h3>Overview:</h3>
+          <p class="descr"> {{ film.overview }}</p>        
         </div>
       </div>
     </div>
   </template>
   
-<style lang="scss" scoped>
+<style lang="scss" >
 @use "../style/partials/variables" as *;
 
 .col{
-  width: calc(100% / 4 - 1rem);
   margin: 0.5rem;
   position: relative;
   .card{
     position:relative;
-    height: 100%;
     &:hover.locandina{
         z-index: 0;
         cursor: pointer;
@@ -68,12 +67,11 @@ export default {
       &:hover .info{
       z-index: 2;
     }
-
     .locandina{
-      width: 100%;
-      z-index: 2;
-      img{
-        width: 100%;
+      height: 516px;
+      background-color:rgba($color: #000000, $alpha: 0.5);
+      .img{
+        height: 520px;
       }
     }
     .info{
@@ -81,26 +79,37 @@ export default {
       top: 0;
       left: 0;
       z-index: -1;
-      background-color:black;
+      padding: 0.5rem;
+      background-color:rgba($color: #000000, $alpha: 0.6);
       width: 100%;
       height: 100%;
       color: white;
+      overflow-y:auto;
+      .lng{
+        color: red;
+        font-size: 2rem;
+        font-weight: bold;
+      }
       h3{
         font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
       span{
-        font-size: 0.8rem;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
       .flag{
         width: 30px;
+        margin-bottom: 0.5rem;
       }
       i{
-        color: yellow
+        color: yellow;
+        margin-bottom: 0.5rem;
       }
       .descr{
-        font-size: 0.6rem;
+        font-size: 0.8rem;
       }
     }
-}
+  }
 }
 </style>

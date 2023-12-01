@@ -19,6 +19,9 @@ export default {
 main{
     background-color: gray;
     width: 100%;
+    height: 100%;
     padding: 1.5rem;
+    padding-top: 80px;
+    overflow-y: auto;
 }
 </style>
